@@ -1,7 +1,6 @@
 package com.elpoder.workshop.config;
 
 import java.time.Instant;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.context.annotation.Profile;
 import com.elpoder.workshop.entities.Category;
 import com.elpoder.workshop.entities.Order;
 import com.elpoder.workshop.entities.OrderItem;
+import com.elpoder.workshop.entities.Payment;
 import com.elpoder.workshop.entities.Product;
 import com.elpoder.workshop.entities.User;
 import com.elpoder.workshop.entities.enums.OrderStatus;
@@ -83,6 +83,10 @@ public class TestConfig implements CommandLineRunner{
 		OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
+		
+		Payment pay = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1 );
+		
+		orderRepository.save(o1);
 		
 		
 				
